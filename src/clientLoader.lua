@@ -1085,6 +1085,7 @@ end
 ForceLoad.OnClientEvent:Connect(function(Object)
     coroutine.resume(coroutine.create(require),Object)
 end)
+warn(lua_wrap_state,lua_bc_to_state,proxyFENV,getfenv)
 for Object,BC in ImportBytecode:InvokeServer() do
     Loads[Object] = lua_wrap_state(lua_bc_to_state(BC),proxyFENV(getfenv(),{
         script = Object,
